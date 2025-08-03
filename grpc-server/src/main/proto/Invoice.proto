@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.bloodika.grpcserver.proto";
+option java_outer_classname = "InvoiceProto";
+
+message InvoiceRequest {
+  string invoiceId = 1;
+  string bankAccount = 2;
+  int32 amount = 3;
+}
+
+message InvoiceResponse {
+  bool status = 1;
+}
+
+service InvoiceService{
+  rpc SendInvoiceData(InvoiceRequest) returns (InvoiceResponse);
+}
