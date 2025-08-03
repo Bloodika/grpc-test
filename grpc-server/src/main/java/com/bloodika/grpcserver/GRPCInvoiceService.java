@@ -14,7 +14,7 @@ public class GRPCInvoiceService extends InvoiceServiceGrpc.InvoiceServiceImplBas
 
     @Override
     public void sendInvoiceData(final InvoiceRequest request, final StreamObserver<InvoiceResponse> responseObserver) {
-        log.info("received request: " + request);
+        log.info("received request: {}", request);
         final InvoiceResponse invoiceResponse = InvoiceResponse.newBuilder().setStatus(true).build();
         responseObserver.onNext(invoiceResponse);
         responseObserver.onCompleted();
